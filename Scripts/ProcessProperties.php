@@ -36,6 +36,10 @@ class ProcessProperties {
 						list ($properties, $writeproperties) = $this->addProperty("bold", $properties);
 						$html = substr_replace($html, $writeproperties, $i , 3); // remove <b> and write properties
 						break;
+                    case "strong":
+                        list ($properties, $writeproperties) = $this->addProperty("bold", $properties);
+                        $html = substr_replace($html, $writeproperties, $i , 3); // remove <strong> and write properties
+                        break;
 					case "u":
 						list ($properties, $writeproperties) = $this->addProperty("underlined", $properties);
 						if ($html[$i+2] == ">"){
@@ -68,6 +72,10 @@ class ProcessProperties {
 				list ($properties, $writeproperties) = $this->removeProperty("bold", $properties);
 				$html = substr_replace($html, $writeproperties, $i, 4); // remove </b> and write properties
 				break;
+            case "strong":
+                list ($properties, $writeproperties) = $this->removeProperty("bold", $properties);
+                $html = substr_replace($html, $writeproperties, $i, 4); // remove </b> and write properties
+                break;
 			case "u":
 				list ($properties, $writeproperties) = $this->removeProperty("underlined", $properties);
 				$html = substr_replace($html, $writeproperties, $i, 4); // remove </u> and write properties
